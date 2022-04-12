@@ -1,20 +1,15 @@
-#User function Template for python3
 
 class Solution:
     def getMinDiff(self, arr, n, k):
         # code here
-        
-        arr.sort()
-        mini = arr[0]
-        maxi = arr[n - 1]
-        diff = maxi - mini
-        for i in range(1, n):
-            if(arr[i]>=k):
-                maxi = max(arr[n - 1] - k, arr[i - 1] + k)
-                mini = min(arr[i] - k, arr[0] + k)
-                diff = min(diff, maxi - mini)
-        return diff    
-            
+        for i in range(n):
+            if(arr[i]<=k):
+                arr[i]+=k
+            else:
+                arr[i]-=k
+        m = min(arr)
+        ma = max(arr)
+        return (ma-m)
 
 #{ 
 #  Driver Code Starts
